@@ -27,6 +27,10 @@ body {
   letter-spacing: .15px;
 }
 
+.open-menu {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -142,6 +146,10 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   line-height: 22px;
+}
+
+.header__burger {
+  display: none;
 }
 
 .panel-header {
@@ -919,16 +927,85 @@ h2 {
     display: none;
   }
 
+  .header__burger {
+    display: block;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 18;
+  }
+
+  .header__burger:before,
+  .header__burger:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+  }
+
+  .header__burger:after {
+    bottom: 0;
+  }
+
+  .header__burger span {
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    background-color: #fff;
+    top: 9px;
+  }
+
+  .header__burger.active:before {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 9px;
+  }
+
+  .header__burger.active:after {
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    bottom: 9px;
+  }
+
+  .header__burger.active span {
+    display: none;
+  }
+
   .panel-header {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background-color: #5d62b5;
+    -webkit-clip-path: circle(10px at 10% -50%);
+            clip-path: circle(10px at 10% -50%);
+    -webkit-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+  }
+
+  .panel-header.active {
+    -webkit-clip-path: circle(1000px at 10% -50%);
+            clip-path: circle(1000px at 10% -50%);
   }
 
   .panel-header__inner {
-    padding: 20px 30px;
+    padding: 40px 60px;
   }
 
   .panel-header__items {

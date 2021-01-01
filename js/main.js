@@ -11,7 +11,18 @@
 
 const tabs = document.querySelectorAll('.galery__item'),
     content = document.querySelectorAll('.galery__img'),
-    container = document.querySelector('.galery__tabs');
+    container = document.querySelector('.galery__tabs'),
+    burger = document.querySelector('.header__burger'),
+    menu_panel = document.querySelector('.panel-header');
+
+
+
+burger.addEventListener('click', () => {
+    menu_panel.classList.toggle('active');
+    burger.classList.toggle('active');
+    document.body.classList.toggle('open-menu')
+})
+
 
 
 function hideTabs(i) {

@@ -42,6 +42,48 @@ header
     @media (max-width: 790px)
         display none
 
+.header__burger
+    display none
+
+    @media (max-width: 600px)
+        display block
+        width 30px
+        height 20px
+        position absolute
+        top 20px
+        left 20px
+        z-index 18
+
+        &:before,
+        &:after
+            content ''
+            position absolute
+            width 30px
+            height 2px
+            background-color #fff
+
+        &:after
+            bottom 0
+
+        span
+            width 30px
+            height 2px
+            position absolute
+            background-color #fff
+            top 9px
+
+        &.active:before
+            transform rotate(45deg)
+            top 9px
+
+        &.active:after
+            transform rotate(-45deg)
+            bottom 9px
+
+        &.active span
+            display none
+
+
 
 .panel-header
     margin 0 0 110px 0
@@ -50,15 +92,19 @@ header
             position absolute
             top 0
             left 0
-            
-            // width 100%
+            width 100%
             height 100vh
-            // display flex
-            // align-items center
+            {flexCenter}
+            align-items center
             background-color color-main
-           // z-index 99
+            clip-path circle(10px at 10% -50%)
+            transition all 1s ease-out
 
-    
+            &.active
+                clip-path circle(1000px at 10% -50%)
+
+
+
     &__inner
         {spaceBetween}
         align-items center
@@ -68,7 +114,9 @@ header
         border-radius 10px
 
         @media (max-width: 600px)
-            padding 20px 30px
+            padding 40px 60px
+            
+            
         
         
     &__items
@@ -79,7 +127,7 @@ header
         
     &__link
         line-height 22px
-        font-weight weight-bold
+        font-family font-bold
         margin 0 37px 0 0
 
         @media (max-width: 600px)
