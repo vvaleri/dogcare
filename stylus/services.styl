@@ -6,7 +6,12 @@
       grid-template-columns repeat(3, 324px)
       grid-template-rows 1fr 1fr
       grid-gap 24px
-      margin 75px 0 66px
+      margin 75px 0 66px 
+
+      @media (max-width: 1060px)
+        grid-template-columns repeat(auto-fit, minmax(300px, 1fr))
+
+      
     
     &__item
       padding 50px 44px
@@ -15,6 +20,9 @@
       border-radius 20px
       transition 0.4s
       cursor pointer
+
+      @media (max-width: 375px)
+        padding 40px 30px
 
       &:hover
         box-shadow 0px 11px 8px 8px rgba(34, 60, 80, 0.2)

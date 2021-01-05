@@ -97,6 +97,13 @@ li {
   line-height: 24px;
 }
 
+h3 {
+  margin: 0 0 20px 0;
+  color: #f2726f;
+  font-size: 19px;
+  line-height: 26px;
+}
+
 header {
   z-index: 5;
   position: relative;
@@ -333,13 +340,6 @@ h1 {
 
 .content-about__img {
   margin: 0 20px 0 0;
-}
-
-h3 {
-  margin: 0 0 20px 0;
-  color: #f2726f;
-  font-size: 19px;
-  line-height: 26px;
 }
 
 .contact {
@@ -878,6 +878,12 @@ h3 {
   }
 }
 
+@media (max-width:1060px) {
+  .services__content {
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  }
+}
+
 @media (max-width:1024px) {
   .content-about__inner {
     -ms-flex-wrap: wrap;
@@ -1078,6 +1084,10 @@ h3 {
     line-height: 25px;
   }
 
+  h3 {
+    font-size: 18px;
+  }
+
   h1 {
     margin: 150px 0 35px;
     font-size: 36px;
@@ -1097,5 +1107,11 @@ h3 {
   .contact h2 {
     font-size: 20px;
     line-height: 26px;
+  }
+}
+
+@media (max-width:375px) {
+  .services__item {
+    padding: 40px 30px;
   }
 }
