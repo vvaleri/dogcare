@@ -1074,7 +1074,6 @@ h1 {
   }
 
   .contact {
-    padding: 0 10px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
@@ -1084,12 +1083,20 @@ h1 {
             align-items: center;
   }
 
+  .contact img {
+    display: none;
+  }
+
   .contact__img {
     padding: 0;
   }
 
   .contact__content {
-    padding: 20px 0 0 0;
+    padding: 20px 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
   }
 
   .contact__box {
