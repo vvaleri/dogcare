@@ -446,9 +446,21 @@ h1 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 980px;
-  background: url("../img/connect-bg.jpg") no-repeat;
-  background-size: 100%;
+  min-height: 980px;
+  background: url("../img/connect-bg.jpg") center no-repeat;
+}
+
+.connect__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
 }
 
 .connect__info {
@@ -474,18 +486,6 @@ h1 {
   font-family: 'Roboto Bold',sans-serif;
 }
 
-.connect__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .form-connect {
   max-width: 585px;
   margin: 0 111px 0 0;
@@ -504,11 +504,16 @@ h1 {
 .form-connect input,
 .form-connect textarea {
   background-color: #5d62b5;
-  color: #fff f;
+  color: #fff;
   border: 1px solid #fff;
   opacity: .8;
   padding: 15px 0 15px 22px;
   border-radius: 10px;
+}
+
+.form-connect input:focus,
+.form-connect textarea:focus {
+  outline-color: #fff;
 }
 
 .form-connect input::-webkit-input-placeholder, .form-connect textarea::-webkit-input-placeholder {
@@ -534,20 +539,26 @@ h1 {
 
 .form-connect input {
   margin: 0 0 22px 0;
+  width: 224px;
 }
 
 .form-connect__box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .form-connect__item {
-  margin: 0 23px 0 0;
-}
-
-.form-connect__item:last-child {
-  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .form-connect textarea {
@@ -896,6 +907,14 @@ h1 {
   .content-about__item:last-child {
     margin: 40px 0 0 0;
   }
+
+  .connect__info {
+    display: none;
+  }
+
+  .form-connect {
+    margin: 0;
+  }
 }
 
 @media (max-width:790px) {
@@ -1076,6 +1095,24 @@ h1 {
   .contact__box {
     display: none;
   }
+
+  .form-connect h4 {
+    font-size: 26px;
+  }
+
+  .form-connect__box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .form-connect textarea {
+    width: 280px;
+  }
 }
 
 @media (max-width:425px) {
@@ -1107,6 +1144,19 @@ h1 {
   .contact h2 {
     font-size: 20px;
     line-height: 26px;
+  }
+
+  .form-connect {
+    padding: 60px 30px;
+  }
+
+  .form-connect h4 {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+  }
+
+  .form-connect textarea {
+    width: 240px;
   }
 }
 
