@@ -1,15 +1,30 @@
 .galery
     margin 0 0 220px 0
+    padding 0 10px
+
+    @media (max-width: 600px)
+        margin 40px 0 220px
 
     &__inner
         margin -100px auto 0 
         background-color color-main
         border-radius 40px
         min-height 700px
-        padding 100px 87px 0 87px
+        padding 100px 87px 0
+
+        @media (max-width: 600px)
+            padding 70px 50px 0
+            min-height 600px
+
+        @media (max-width: 425px)
+            padding 70px 10px 0
+
 
     &__tabs
         margin 55px 0 0 0
+
+        @media (max-width: 825px)
+            margin 35px 0 0 0
 
     &__titles
         margin 0 0 50px 0
@@ -19,14 +34,25 @@
         {spaceBetween}
         border-bottom 1px solid rgba(255, 255, 255, 0.15)
 
+        @media (max-width: 825px)
+            justify-content center
+            flex-wrap wrap
+
+        @media (max-width: 425px)
+            flex-direction column
+            align-items center
+
     &__item
         padding 0 20px 15px
         cursor pointer
+
+        @media (max-width: 825px)
+            padding 20px 
         
 
         &.active
             border-bottom 4px solid #ffffff
-            font-weight 700     
+            font-family font-bold     
 
     &__img
         display none
@@ -38,6 +64,7 @@
 
         img 
             margin 0 0 -120px 0
+            max-width 100%
             border-radius 40px
 
    
