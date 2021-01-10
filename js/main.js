@@ -1,14 +1,3 @@
-// const dropdown = document.querySelectorAll('details[open]');
-
-// function closeDropdown(e) {
-//     if(e.target.contains('summary-items')) {
-//         dropdown.forEach(item => item.open = false)
-//     }
-    
-// }
-
-// document.body.addEventListener('click', closeDropdown)
-
 const tabs = document.querySelectorAll('.galery__item'),
     content = document.querySelectorAll('.galery__img'),
     container = document.querySelector('.galery__tabs'),
@@ -36,7 +25,8 @@ function showTubs(i = 0) {
 }
 showTubs()
 
-container.addEventListener('click', event => {
+
+function clickTub(event) {
     let target = event.target;
 
     if(target.classList.contains('galery__item')) {
@@ -48,4 +38,9 @@ container.addEventListener('click', event => {
             }
         })
     }
-})
+}
+
+
+container.addEventListener('click', clickTub)
+container.addEventListener('focusin', clickTub)
+

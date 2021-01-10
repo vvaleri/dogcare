@@ -54,7 +54,7 @@
 
     &__item
         padding 0 20px 15px
-        cursor pointer
+        cursor pointer  
 
         @media (max-width: 825px)
             padding 20px 
@@ -62,7 +62,10 @@
 
         &.active
             border-bottom 4px solid #ffffff
-            font-family font-bold     
+            font-family font-bold  
+
+        &:focus
+            outline-color #fff   
 
     &__img
         display none
@@ -76,8 +79,4 @@
             margin 0 0 -120px 0
             max-width 100%
             border-radius 40px
-
-   
-
-
 

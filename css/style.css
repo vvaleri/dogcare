@@ -635,6 +635,10 @@ h1 {
   font-family: 'Roboto Bold',sans-serif;
 }
 
+.galery__item:focus {
+  outline-color: #fff;
+}
+
 .galery__img {
   display: none;
 }
