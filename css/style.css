@@ -38,6 +38,7 @@ a {
 
 a:focus {
   outline-color: #5d62b5;
+  outline-style: dashed;
 }
 
 ul,
@@ -98,6 +99,7 @@ li {
 
 .title span:focus {
   outline-color: #fff;
+  outline-style: dashed;
 }
 
 ._black p {
@@ -110,6 +112,7 @@ li {
 
 ._black span:focus {
   outline-color: #5d62b5;
+  outline-style: dashed;
 }
 
 .text {
@@ -226,6 +229,11 @@ header {
 details > summary {
   list-style: none;
   cursor: pointer;
+}
+
+details > summary:focus {
+  outline-color: #5d62b5;
+  outline-style: dashed;
 }
 
 summary::-webkit-details-marker {
@@ -626,7 +634,7 @@ h1 {
 }
 
 .galery__item {
-  padding: 0 20px 15px;
+  padding: 10px 20px 15px;
   cursor: pointer;
 }
 
@@ -637,6 +645,7 @@ h1 {
 
 .galery__item:focus {
   outline-color: #fff;
+  outline-style: dashed;
 }
 
 .galery__img {
