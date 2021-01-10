@@ -2,9 +2,18 @@
     padding 0 10px
     min-height 608px
     background-color #29C3BE
+
+    @media (max-width: 986px)
+        min-height 660px
+
+    @media (max-width: 465px)
+        min-height 700px
          
     &__content
         padding 100px 0 0 0
+
+        @media (max-width: 465px)
+            padding 70px 0 0 0
          
     &__title
         display flex
@@ -12,6 +21,9 @@
 
         @media (max-width: 986px)
             margin 0 0 50px 0
+
+        @media (max-width: 465px)
+            margin 0 0 20px 0
            
         img
             margin -180px 0 0 0
@@ -20,7 +32,7 @@
             @media (max-width: 1024px)
                 margin -160px 0 0 0
 
-            @media (max-width: 768px)
+            @media (max-width: 810px)
                 display none
             
            
