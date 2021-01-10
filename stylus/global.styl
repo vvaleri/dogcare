@@ -30,6 +30,9 @@ a
    text-decoration none
    color #000000
 
+   &:focus
+       outline-color color-main
+
    @media (min-width: 768px) 
       &:hover
          text-decoration underline   
@@ -54,6 +57,12 @@ ul, li
     border-radius 10px
     text-transform uppercase
     transition 0.3s
+
+    &:focus
+      outline-color color-main
+      background-color #ffffff
+      color color-secondary
+      border 2px solid color-secondary
     
 
     @media (min-width: 768px) 
@@ -83,17 +92,24 @@ ul, li
       
    span
       margin 0 0 30px 0
+      max-width 240px
       font-size 12px
       font-family font-bold
       letter-spacing 2.5px
       line-height 24px
       text-transform uppercase
+
+      &:focus
+         outline-color #fff
       
 ._black
    p
       color #000000
    span
       color color-main
+
+      &:focus
+         outline-color color-main
 
 
 .text

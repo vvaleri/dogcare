@@ -36,6 +36,10 @@ a {
   color: #000;
 }
 
+a:focus {
+  outline-color: #5d62b5;
+}
+
 ul,
 li {
   list-style: none;
@@ -61,6 +65,13 @@ li {
   transition: .3s;
 }
 
+.main-btn:focus {
+  outline-color: #5d62b5;
+  background-color: #fff;
+  color: #f2726f;
+  border: 2px solid #f2726f;
+}
+
 .title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -77,11 +88,16 @@ li {
 
 .title span {
   margin: 0 0 30px 0;
+  max-width: 240px;
   font-size: 12px;
   font-family: 'Roboto Bold',sans-serif;
   letter-spacing: 2.5px;
   line-height: 24px;
   text-transform: uppercase;
+}
+
+.title span:focus {
+  outline-color: #fff;
 }
 
 ._black p {
@@ -90,6 +106,10 @@ li {
 
 ._black span {
   color: #5d62b5;
+}
+
+._black span:focus {
+  outline-color: #5d62b5;
 }
 
 .text {
@@ -416,6 +436,12 @@ h1 {
   -o-transition: .4s;
   transition: .4s;
   cursor: pointer;
+}
+
+.services__item:focus {
+  outline: none;
+  -webkit-box-shadow: 0 11px 8px 8px rgba(34,60,80,0.2);
+          box-shadow: 0 11px 8px 8px rgba(34,60,80,0.2);
 }
 
 .services__item:hover {
