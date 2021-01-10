@@ -31,11 +31,7 @@ function clickTub(event) {
 
     if(target.classList.contains('galery__item')) {
         tabs.forEach((item, i) => {
-            if (target == item) {
-                showTubs(i);
-            } else {
-                hideTabs(i);
-            }
+            target == item ? showTubs(i) : hideTabs(i);
         })
     }
 }
