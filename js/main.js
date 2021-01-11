@@ -1,3 +1,7 @@
+AOS.init({
+    duration: 1000,
+});
+
 const tabs = document.querySelectorAll('.galery__item'),
     content = document.querySelectorAll('.galery__img'),
     container = document.querySelector('.galery__tabs'),
