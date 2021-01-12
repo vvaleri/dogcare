@@ -484,7 +484,7 @@ h1 {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 980px;
-  background: url("../img/connect-bg.jpg") center no-repeat;
+  background: url("../img/connect-bg.jpg") center/cover no-repeat;
 }
 
 .connect__content {
