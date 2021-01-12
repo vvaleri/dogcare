@@ -83,8 +83,11 @@ li {
           flex-direction: column;
   max-width: 583px;
   font-family: 'Roboto Bold',sans-serif;
-  font-size: 36px;
   line-height: 42px;
+}
+
+.title h2 {
+  font-size: 36px;
 }
 
 .title span {
@@ -102,7 +105,7 @@ li {
   outline-style: dashed;
 }
 
-._black p {
+._black h2 {
   color: #000;
 }
 
