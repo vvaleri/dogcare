@@ -1163,6 +1163,10 @@ h1 {
     padding: 7px 0 0 0;
   }
 
+  .header__logo img {
+    display: none;
+  }
+
   .header__contacts {
     display: none;
   }
@@ -1240,8 +1244,8 @@ h1 {
   }
 
   .panel-header.active {
-    -webkit-clip-path: circle(1000px at 10% -50%);
-            clip-path: circle(1000px at 10% -50%);
+    -webkit-clip-path: circle(1100px at 10% -50%);
+            clip-path: circle(1100px at 10% -50%);
   }
 
   .panel-header__inner {
@@ -1496,5 +1500,49 @@ h1 {
 
   .footer__panel p {
     font-size: 16px;
+  }
+}
+
+@media (min-height:900px) {
+  .panel-header {
+    margin: 0 0 200px 0;
+  }
+}
+
+@media (max-height:500px) {
+  .panel-header {
+    margin: 0 0 40px 0;
+  }
+}
+
+@media (min-height:667px) {
+  .main {
+    margin: 0 0 210px 0;
+  }
+}
+
+@media (max-height:400px) and (orientation:landscape) {
+  .main {
+    margin: 0 0 100px 0;
+  }
+}
+
+@media (max-height:320px) and (orientation:landscape) {
+  .main {
+    margin: 0 0 30px 0;
+  }
+}
+
+@media (min-height:730px) and (orientation:portrait) {
+  h1 {
+    margin: 250px 0 48px;
+  }
+}
+
+@media (max-height:500px) and (orientation:landscape) {
+  h1 {
+    margin: 100px 0 20px;
+    font-size: 32px;
+    line-height: 28px;
   }
 }

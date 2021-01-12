@@ -13,6 +13,12 @@ header
     @media (max-width: 600px)
         justify-content center
         padding 7px 0 0 0
+
+.header__logo
+    img 
+        @media (max-width: 600px)
+            display none
+
     
 .header__contacts,
 .header__hours,
@@ -88,6 +94,13 @@ header
 .panel-header
     margin 0 0 110px 0
 
+    @media (min-height: 900px)
+            margin 0 0 200px 0
+
+    @media (max-height: 500px) 
+            margin 0 0 40px 0
+
+
     @media (max-width: 600px)
             position absolute
             top 0
@@ -99,9 +112,10 @@ header
             background-color color-main
             clip-path circle(10px at 10% -50%)
             transition all 1s ease-out
+            
 
             &.active
-                clip-path circle(1000px at 10% -50%)
+                clip-path circle(1100px at 10% -50%)
 
 
 
@@ -114,9 +128,7 @@ header
         border-radius 10px
 
         @media (max-width: 600px)
-            padding 40px 60px
-            
-            
+            padding 40px 60px  
         
         
     &__items
