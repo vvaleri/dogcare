@@ -1268,6 +1268,10 @@ h1 {
     display: none;
   }
 
+  .summary-items {
+    border: 1px dashed #5d62b5;
+  }
+
   h1 {
     margin: 190px 0 48px;
     max-width: 450px;
@@ -1404,6 +1408,9 @@ h1 {
   .content-footer__navigate {
     padding: 0;
     margin: 30px 0 0 0;
+  }
+
+  .content-footer__navigate p {
     text-align: center;
   }
 
