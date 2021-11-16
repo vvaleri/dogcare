@@ -1,0 +1,75 @@
+*
+  padding 0
+  margin 0
+  border 0
+  box-sizing border-box
+
+body
+   color #FFFFFF
+   background-color #F5F5F5
+   font-family 'Roboto', sans-serif
+   letter-spacing 0.15px
+
+a
+    text-decoration none
+    color #000000
+    transition opacity transition-300
+
+    @media (hover: hover), screen and (min-width: 0\0)
+      &:hover,
+      &:focus
+        opacity 0.8
+ul
+   list-style none
+
+img
+    display block
+    max-width 100%
+    height auto
+
+input,
+textarea
+    appearance none
+    border-radius 0
+
+    &::placeholder 
+        opacity 1
+
+    &:invalid
+        box-shadow none
+
+.wrapper
+   position relative
+   display: flex
+   flex-direction: column
+   min-height 100vh
+   min-height calc(100 * var(--vh, 1vh))
+   overflow hidden
+
+.header,
+.footer
+   flex-shrink 0
+
+main
+   flex-grow 1
+
+.container
+   width 100%
+   max-width 1020px
+   margin 0 auto
+   padding 0 10px
+
+.visually-hidden
+   position absolute
+   width 1px
+   height 1px
+   margin -1px
+   clip rect(0 0 0 0)
+
+@keyframes disableBreakpointAnimation
+   0%
+      visibility hidden
+      opacity 0
+   100%
+      visibility hidden
+      opacity 0

@@ -1,0 +1,78 @@
+mixin header()
+  -
+    const headerLinks = [
+      {
+        href: "#",
+        text: "Specials"
+      },
+      {
+        href: "#",
+        text: "Facilities"
+      },
+      {
+        href: "#",
+        text: "Reviews"
+      },
+    ]
+  -
+    const innerNavLink = [
+      {
+        href: "#",
+        text: "Grooming"
+      },
+      {
+        href: "#",
+        text: "Training"
+      },
+      {
+        href: "#",
+        text: "Daycare"
+      },
+    ]
+
+  header.header.container
+    .header__info
+      button.header__burger(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
+        span                          
+      .header__logo
+        img(src='img/svg/head-logo.svg', alt='logotype company')
+      .header__contacts
+        .header__hours
+          +icon("head-time", 20, 25)
+          p.header__inner
+            span BOARDING HOURS
+            |Mon - Sat: 7:00 am - 6:00 pm
+        .header__phone
+          +icon("head-phone", 24, 24)
+          p.header__inner
+            span CALL US
+            |(555) Pup-Cares   
+        +btn({btnType: "button", text: "Make an Appointment"})
+    .panel-header
+      .panel-header__inner
+        nav.panel-header__menu
+          ul.panel-header__list
+            li.panel-header__item.js-nav-item
+              a(href='#').panel-header__link.js-nav-link Services
+                +icon("arrow-menu", 16, 16)
+              .inner-nav.hidden
+                ul.inner-nav__list
+                  each link in innerNavLink
+                    li.inner-nav__item 
+                      a(href='#').inner-nav__link=link.text
+            each item in headerLinks
+              li.panel-header__item
+                a(href='#').panel-header__link=item.text    
+            li.panel-header__item.js-nav-item
+              a(href='#').panel-header__link.js-nav-link Shop
+                +icon("arrow-menu", 16, 16)
+              .inner-nav.hidden
+                ul.inner-nav__list
+                  each link in innerNavLink
+                    li.inner-nav__item 
+                      a(href='#').inner-nav__link=link.text        
+            li.panel-header__item
+              a(href='#').panel-header__link About
+        .panel-header__box
+          +icon("icon-search", 24, 24)  
+          +icon("shopp-cart", 22, 20)

@@ -1,0 +1,23 @@
+{
+  "extends": "airbnb",
+  "env": {
+      "browser": true,
+      "es6": true
+  },
+  "rules":{
+      "linebreak-style": 0,
+      "arrow-parens": [
+          "error", "as-needed"
+      ],
+      "no-use-before-define": [
+          "error", { "functions": false }
+      ],
+      "import/prefer-default-export": 0,
+      "no-plusplus": [
+          "error", { "allowForLoopAfterthoughts": true }
+      ],
+      "eqeqeq": [
+          "error", "smart"
+      ]
+    }
+}

@@ -1,0 +1,25 @@
+.inner-nav
+    position absolute
+    padding 10px
+    padding-top 15px
+    background-color #fff
+    border-radius 0 0 10px 10px
+    transition opacity transition-300, visibility transition-300
+    animation: disableBreakpointAnimation 0.5ms
+
+    @media (max-width: 600px)
+        position static
+        padding 0
+
+    &__item
+        @media (max-width: 600px)
+            margin-bottom 10px
+
+
+    &.hidden
+        visibility hidden
+        opacity 0
+
+        @media (max-width: 600px)
+            visibility visible
+            opacity 1

@@ -1,159 +1,154 @@
-let projectFolder = 'dist',
-    sourceFolder = 'src',
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
 
-    path = {
-        build: {
-            html: projectFolder + '/',
-            css: projectFolder + '/css/',
-            img: projectFolder + '/img/',
-            js: projectFolder + '/js',
-        },
+const stylus = require('gulp-stylus');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const server = require('browser-sync').create();
+const csso = require('gulp-csso');
+const rename = require('gulp-rename');
+const imagemin = require('gulp-imagemin');
+const webp = require('gulp-webp');
+const svgstore = require('gulp-svgstore');
+const del = require('del');
+const webpackStream = require('webpack-stream');
+const webpackConfig = require('./webpack.config.js');
+const pug = require('gulp-pug');
+const cached = require('gulp-cached');
+const gcmq = require('gulp-group-css-media-queries');
 
-        src: {
-            html: sourceFolder + '/*.html',
-            css: sourceFolder + '/scss/style.styl',
-            img: sourceFolder + '/img/**/*.{jpg,png,gif,webp}',
-            js: sourceFolder + '/js/main.js',
-        },
+const pugToHtml = () => {
+  return gulp.src('source/pug/pages/*.pug')
+      .pipe(plumber())
+      .pipe(pug({ pretty: true }))
+      .pipe(cached('pug'))
+      .pipe(gulp.dest('build'));
+};
 
-        watch: {
-            html: sourceFolder + '/**/*.html',
-            css: sourceFolder + '/scss/**/*.styl',
-            img: sourceFolder + '/img/**/*.{jpg,png,gif,webp}',
-            js: sourceFolder + '/js/**/*.js',
-        },
-
-        clean: './' + projectFolder + '/'
-    }
-
-
-let {src, dest} = require('gulp'),
-    gulp = require('gulp'),
-    browsersync = require('browser-sync').create(),
-    stylus = require('gulp-stylus'),
-    // scss = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    group_media = require('gulp-group-css-media-queries'),
-    imagemin = require('gulp-imagemin'),
-    webp = require('gulp-webp'),
-    webphtml = require('gulp-webp-html'),
-    // babel = require('gulp-babel'),
-    fileinclude = require('gulp-file-include'),
-    clean_css = require('gulp-clean-css'),
-    rename = require('gulp-rename'),
-    uglify = require('gulp-uglify-es').default;
-
-
-function browserSync(params) {
-    browsersync.init({
-        server: {
-            baseDir: './' + projectFolder + '/'
-        },
-        notify: false
-    })
-}
-
-
-
-function html() {
-    return src(path.src.html)
-    .pipe(fileinclude())  
-    .pipe(webphtml())  
-    .pipe(dest(path.build.html))
-    .pipe(browsersync.stream())
-}
-
-
-
-function css() {
-    return src(path.src.css)
-    .pipe(stylus({
+const css = () => {
+  return gulp.src('source/stylus/style.styl')
+      .pipe(plumber())
+      .pipe(stylus({
         compress: true
-    }))
-    // .pipe (
-    //     scss({
-    //         outputStyle: "expanded"
-    //     })
-    // )
-    .pipe(
-        group_media()
-    )
-    .pipe(
-        autoprefixer({
-            grid: true,
-            overrideBrowserslist: ["last 4 versions"],
-            cascade: true
-        })
-    )
-    .pipe(dest(path.build.css))  
-    .pipe(clean_css())
-    .pipe(
-        rename({
-            extname: ".min.css"    
-        })
-    )
-    .pipe(dest(path.build.css))
-    .pipe(browsersync.stream())
-}
+      }))
+      .pipe(postcss([autoprefixer({
+        grid: true,
+      })]))
+      .pipe(gcmq())
+      .pipe(gulp.dest('build/css'))
+      .pipe(csso())
+      .pipe(rename('style.min.css'))
+      .pipe(gulp.dest('build/css'))
+      .pipe(server.stream());
+};
 
+const js = () => {
+  return gulp.src(['source/js/main.js'])
+      .pipe(webpackStream(webpackConfig))
+      .pipe(gulp.dest('build/js'))
+};
 
-function images() {        
-    return src(path.src.img) 
-    .pipe(
-        webp ({
-            quality: 90
-        })
-    )
-    .pipe(dest(path.build.img)) 
-    .pipe(src(path.src.img)) 
+const svgo = () => {
+  return gulp.src('source/img/**/*.{svg}')
+      .pipe(imagemin([
+        imagemin.svgo({
+            plugins: [
+              {removeViewBox: false},
+              {removeRasterImages: true},
+              {removeUselessStrokeAndFill: false},
+            ]
+          }),
+      ]))
+      .pipe(gulp.dest('source/img'));
+};
 
-    .pipe(
-        imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            interlaced: true,
-            optimizationLevel: 2 //0 to 7
-        })
-    )   
+const sprite = () => {
+  return gulp.src('source/img/sprite/*.svg')
+      .pipe(svgstore({inlineSvg: true}))
+      .pipe(rename('sprite_auto.svg'))
+      .pipe(gulp.dest('build/img'));
+};
 
-        .pipe(dest(path.build.img))    
-        .pipe(browsersync.stream())      
-}
+const syncserver = () => {
+  server.init({
+    server: 'build/',
+    notify: false,
+    open: true,
+    cors: true,
+    ui: false,
+  });
 
+  gulp.watch('source/pug/**/*.pug', gulp.series(pugToHtml, refresh));
+  gulp.watch('source/stylus/**/*.styl', gulp.series(css));
+  gulp.watch('source/js/**/*.{js,json}', gulp.series(js, refresh));
+  gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
+  gulp.watch('source/img/**/*.svg', gulp.series(copysvg, sprite, pugToHtml, refresh));
+  gulp.watch('source/img/**/*.{png,jpg}', gulp.series(copypngjpg, pugToHtml, refresh));
 
-function js() {
-    return src(path.src.js)
-    // .pipe(babel({
-    //     presets: ['@babel/env']
-    // }))
-    .pipe(dest(path.build.js))     
-        .pipe(
-            uglify()
-        )
-        .pipe(
-            rename({
-                extname: ".min.js"    
-            })
-        )
-    .pipe(dest(path.build.js))
-}
+  gulp.watch('source/favicon/**', gulp.series(copy, refresh));
+  gulp.watch('source/video/**', gulp.series(copy, refresh));
+  gulp.watch('source/downloads/**', gulp.series(copy, refresh));
+  gulp.watch('source/*.php', gulp.series(copy, refresh));
+};
 
-function watchFiles(params) {
-    gulp.watch([path.watch.html],html) 
-    gulp.watch([path.watch.css],css)
-    gulp.watch([path.watch.img],images)
-    gulp.watch([path.watch.js],js)
-}
+const refresh = (done) => {
+  server.reload();
+  done();
+};
 
+const copysvg = () => {
+  return gulp.src('source/img/**/*.svg', {base: 'source'})
+      .pipe(gulp.dest('build'));
+};
 
-let build = gulp.series(gulp.parallel(js, css, html, images)); 
-let watch = gulp.parallel(build, watchFiles, browserSync);
+const copypngjpg = () => {
+  return gulp.src('source/img/**/*.{png,jpg}', {base: 'source'})
+      .pipe(gulp.dest('build'));
+};
 
+const copy = () => {
+  return gulp.src([
+    'source/fonts/**',
+    'source/img/**',
+    'source/data/**',
+    'source/favicon/**',
+    'source/video/**', 
+    'source/downloads/**',
+    'source/*.php',
+  ], {
+    base: 'source',
+  })
+      .pipe(gulp.dest('build'));
+};
 
-exports.js = js;
-exports.images = images;
-exports.css = css;
-exports.html = html;
+const clean = () => {
+  return del('build');
+};
+
+const build = gulp.series(clean, svgo, copy, css, sprite, js, pugToHtml);
+
+const start = gulp.series(build, syncserver);
+
+// Optional tasks
+//---------------------------------
+
+const createWebp = () => {
+  const root = '';
+  return gulp.src(`source/img/${root}**/*.{png,jpg}`)
+    .pipe(webp({quality: 90}))
+    .pipe(gulp.dest(`source/img/${root}`));
+};
+
+const optimizeImages = () => {
+  return gulp.src('build/img/**/*.{png,jpg}')
+      .pipe(imagemin([
+        imagemin.optipng({optimizationLevel: 3}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+      ]))
+      .pipe(gulp.dest('build/img'));
+};
+
 exports.build = build;
-exports.watch = watch;
-exports.default = watch;
+exports.start = start;
+exports.webp = createWebp;
+exports.imagemin = optimizeImages;

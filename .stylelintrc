@@ -1,0 +1,8 @@
+{
+  "extends": "stylelint-config-airbnb",
+  "plugins": ["stylelint-order", "stylelint-plugin-stylus"],
+  "rules": {
+    "declaration-no-important": true,
+    "max-nesting-depth": 4
+  }
+}

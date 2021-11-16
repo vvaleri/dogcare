@@ -1,0 +1,94 @@
+.header
+    z-index 5
+    position relative
+    font-size 12px
+    
+.header__info
+    {spaceBetween}
+    padding-top 25px
+    margin-bottom 25px
+
+    @media (max-width: 600px)
+        justify-content center
+        padding-top 7px
+
+.header__logo
+    img 
+        @media (max-width: 600px)
+            display none
+
+    
+.header__contacts,
+.header__hours,
+.header__phone
+    display flex
+
+.header__contacts
+    @media (max-width: 600px)
+        display none
+
+    .btn
+        @media (max-width: 790px)
+            display none
+
+    
+.header__hours,
+.header__phone
+    margin-right 30px
+    align-items flex-start
+
+    svg 
+        margin-right 10px
+        padding-top 5px
+      
+    
+.header__inner
+    {flexColumn}
+    line-height 22px
+
+.header__burger
+    display none
+
+    @media (max-width: 600px)
+        display block
+        width 30px
+        height 20px
+        position absolute
+        top 10px
+        left 0px
+        z-index 18
+        background-color transparent
+        border none
+
+        &:before,
+        &:after
+            content ''
+            position absolute
+            width 30px
+            height 2px
+            background-color #fff
+            transition transform transition-300
+
+        &:after
+            bottom 0
+
+        &:before
+            top 0
+
+        span
+            width 30px
+            height 2px
+            position absolute
+            background-color #fff
+            top 9px
+
+        &.active:before
+            transform rotate(45deg)
+            top 9px
+
+        &.active:after
+            transform rotate(-45deg)
+            bottom 9px
+
+        &.active span
+            display none

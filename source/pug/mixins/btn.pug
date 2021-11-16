@@ -1,0 +1,2 @@
+mixin btn(setting)
+    button.btn(class!= setting.mod ? `btn--${setting.mod}` : null, type=setting.btnType)&attributes(attributes)= setting.text

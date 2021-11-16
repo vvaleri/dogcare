@@ -1,0 +1,89 @@
+.panel-header
+    margin-bottom 110px
+
+    @media (min-height: 900px)
+            margin-bottom 200px
+
+
+    @media (max-width: 600px)
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100vh
+            {flexCenter}
+            align-items center
+            padding-top 15px
+            padding-bottom 15px
+            background-color color-main
+            clip-path circle(10px at 10% -50%)
+            transition all 0.7s ease-out
+            
+
+            &.active
+                clip-path circle(1100px at 10% -50%)
+
+
+    &__inner
+        {spaceBetween}
+        align-items center
+        padding 10px 40px
+        color #000000
+        background-color #FFFFFF
+        border-radius 10px
+
+        @media (max-width: 600px)
+            width 70%
+            height 100%
+            align-items flex-start
+            justify-content center
+            overflow-y auto
+            -ms-overflow-style none
+            scrollbar-width none
+
+            &::-webkit-scrollbar
+                display none
+        
+        
+    &__list
+        display flex
+
+        @media (max-width: 600px)
+            flex-direction column
+        
+    &__item
+        line-height 22px
+        font-weight weight-bold
+        margin-right 30px
+
+        @media (max-width: 600px)
+            margin-bottom 15px
+            margin-right 0
+            font-size 16px
+
+        &:last-child
+            margin margin-child
+        
+    &__link
+        display flex
+        align-items center
+
+        svg 
+            transform rotate(-90deg)
+            transition transform transition-300
+
+            @media (max-width: 600px)
+                display: none
+
+        &.active
+            svg 
+                transform rotate(0deg)
+           
+    &__box
+        @media (max-width: 600px)
+            display none
+
+        svg 
+            margin-right 15px
+            &:last-child
+                margin margin-child
