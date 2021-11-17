@@ -1,0 +1,44 @@
+.about
+    margin 0 auto 120px
+    z-index 7
+    position relative
+
+    @media (max-width: 600px)
+        margin-bottom 90px
+
+    &__box
+        {flexColumn}
+        padding 80px 80px 0
+        margin-bottom 200px
+        min-height 700px
+        background-color color-main
+        border-radius 40px
+
+        @media (max-width: 790px)
+            min-height 500px
+
+        @media (max-width: 600px)
+            padding-top 50px
+            padding-left 20px
+            padding-right 20px
+
+        @media (max-width: 425px)
+            margin-bottom 180px
+            min-height 400px
+
+    &__text
+        margin-top 40px
+        line-height 24px
+        color #F5F5F5
+        
+    &__img
+        margin-top 60px
+        margin-bottom -120px
+
+        @media (max-width: 425px)
+            margin-top 30px
+            margin-bottom -90px
+
+        img
+            border-radius 40px
+            max-width 100%

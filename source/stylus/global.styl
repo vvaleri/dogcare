@@ -66,6 +66,48 @@ main
    margin -1px
    clip rect(0 0 0 0)
 
+.title
+   {flexColumn}
+   max-width 583px
+   line-height 42px
+
+   h2
+      font-size 36px
+
+      @media (max-width: 600px)
+         font-size 26px
+         line-height 32px
+
+      @media (max-width: 425px)
+         font-size 20px
+         line-height 25px
+
+   span
+      margin-bottom 30px
+      max-width 240px
+      font-size 12px
+      letter-spacing 2.5px
+      line-height 24px
+      text-transform uppercase
+
+.title--black
+   h2
+      color #000000
+   span
+      color color-main
+
+
+.text
+   color #4B4B4B
+   line-height 24px
+
+h3
+   margin-bottom 20px
+   color color-secondary
+   font-size 18px
+   line-height 26px
+
+
 @keyframes disableBreakpointAnimation
    0%
       visibility hidden

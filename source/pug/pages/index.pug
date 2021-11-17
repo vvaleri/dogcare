@@ -8,10 +8,9 @@ block variables
 
 block main
   main
-    section.main
-      .main__bg
-        +picture('content', 'bg-image', 'jpg', 1440, 808, 'woman with dalmatian')
-      .main__content.container(data-aos='zoom-in')
-        h1 Premier dog boarding, daycare &amp; day spa  
-        +btn({btnType: "button", text: "Make an Appointment"})
+    include ../blocks/main
+    include ../blocks/about
+    include ../blocks/contact
+    include ../blocks/services
+
 
