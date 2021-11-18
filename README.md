@@ -1,6 +1,5 @@
 # dogcare
 
-[landing page](https://vvaleri.github.io/dogcare/):
+Responsive [landing page](https://vvaleri.github.io/dogcare/):
 
-* stylus
-* aos.js
+Source files - branch 'ref'
