@@ -1,0 +1,84 @@
+.impact
+    padding-left 10px
+    padding-right 10px
+    background-color #29C3BE
+         
+    &__content
+        padding-top 100px
+        padding-bottom 140px
+
+        @media (max-width: 600px)
+            padding-top 50px
+
+        @media (max-width: 465px)
+            padding-top 70px
+            padding-bottom 70px
+         
+    &__title
+        display flex
+        margin-bottom 80px
+
+        @media (max-width: 600px)
+            margin-bottom 20px
+           
+        img
+            margin-top -180px
+            border-radius 40px
+
+            @media (max-width: 1024px)
+                margin-top -140px
+
+            @media (max-width: 810px)
+                display none
+            
+           
+    &__item
+        display flex
+        span
+            font-size 36px
+            line-height 42px
+            font-weight 700
+             
+        p
+            font-size 16px
+            line-height 24px
+            font-weight 700
+            color color-main
+             
+    &__inner
+        display flex
+        width calc(100% + 80px)
+        margin-bottom -80px
+        flex-wrap wrap
+
+        @media (max-width: 1024px)
+            width calc(100% + 50px)
+            margin-bottom -50px
+
+        @media (max-width: 600px)
+            width 100%
+            flex-direction column
+            align-items center
+         
+           
+    &__item
+        width calc(25% - 80px)
+        margin-right 80px
+        margin-bottom 80px
+        justify-content: center
+
+        @media (max-width: 1024px)
+            width calc(50% - 50px)
+            margin-right 50px
+            margin-bottom 50px
+
+        @media (max-width: 600px)
+            width 100%
+            margin-right 0
+
+        svg
+            margin-right 10px
+  
+    &__box
+        {flexColumn}
+        justify-content center

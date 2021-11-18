@@ -1,0 +1,102 @@
+.content-footer
+    {spaceBetween}
+    margin 80px auto 95px 
+    color #4B4B4B
+    font-size 14px
+    line-height 22px
+
+    @media (max-width: 676px)
+        flex-wrap wrap
+        justify-content center
+        margin-bottom 50px
+
+    @media (max-width: 465px)
+        flex-direction column
+        align-items center
+
+    &__inner
+        img
+            margin-bottom 25px
+            
+        p
+            max-width 235px
+            margin-bottom 30px
+            
+
+    &__icons
+        display flex
+        align-items center
+
+        @media (max-width: 465px)
+            justify-content center
+
+        a 
+            margin-right 20px
+
+
+    &__navigate
+        padding-left 20px
+        padding-right 20px
+        font-weight 700
+
+        @media (max-width: 465px)
+            padding 0
+            margin-top 30px
+
+        p
+            margin-bottom 30px
+            text-transform uppercase
+
+            @media (max-width: 465px)
+                text-align center
+
+    &__menu
+        display flex  
+        
+
+    &__items
+        margin-right 130px
+        &:last-child
+            margin margin-child
+
+        @media (max-width: 810px)
+            margin-right 50px
+
+        @media (max-width: 465px)
+            margin-right 70px
+
+
+    &__link
+        margin-bottom 10px
+        
+        &:last-child
+            margin margin-child
+
+        a
+            color #4B4B4B
+
+    &__contacts
+        @media (max-width: 676px)
+            margin-top 30px
+
+
+    &__title
+        margin-bottom 30px
+        font-weight 700
+        text-transform uppercase
+
+        @media (max-width: 465px)
+            text-align center
+
+    &__box
+        display flex
+        align-items flex-start
+        margin-bottom 15px
+        &:last-child
+            margin margin-child
+
+        p
+            max-width 200px
+
+        svg 
+            margin-right 20px

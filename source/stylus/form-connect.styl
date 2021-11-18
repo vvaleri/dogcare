@@ -1,0 +1,66 @@
+.form-connect
+   max-width 585px 
+   margin-right 110px
+   padding 76px 57px
+   text-align center
+   background-color color-main
+   border-radius 40px
+
+   @media (max-width: 1024px)
+      margin 0
+
+   @media (max-width: 600px)
+      max-width 100%
+      width 100%
+      padding 30px 20px
+     
+    h4
+      margin-bottom 40px
+      font-size 36px
+      line-height 42px
+
+      @media (max-width: 600px)
+         font-size 26px
+         margin-bottom 20px
+
+      @media (max-width: 425px)
+         font-size 20px
+       
+   input, textarea
+      background-color color-main
+      color #fff
+      border 1px solid #fff
+      opacity 0.8
+      padding 15px 0 15px 22px
+      border-radius 10px
+
+      @media (max-width: 600px)
+         width 100%
+
+      &:focus
+         outline-color #fff
+
+      &::placeholder
+         color #fff
+
+
+   input
+      margin-bottom 20px
+      width 224px
+       
+   &__box
+      {spaceBetween}
+
+      @media (max-width: 600px)
+         flex-direction column
+       
+       
+   &__item
+      {flexColumn}
+         
+      
+   textarea
+      resize none
+      width 470px
+      height 180px
+      margin-bottom 30px

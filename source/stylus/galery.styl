@@ -1,0 +1,75 @@
+.galery
+    margin-bottom 220px
+    padding-left 10px
+    padding-right 10px
+
+    @media (max-width: 600px)
+        margin-bottom 160px
+        margin-top 40px
+
+
+    &__inner
+        margin -100px auto 0 
+        background-color color-main
+        border-radius 40px
+        padding 100px 85px 0
+
+        @media (max-width: 600px)
+            padding-top: 50px
+            padding-left 20px
+            padding-right 20px
+            margin-top -50px
+
+        @media (max-width: 425px)
+            padding-left 10px
+            padding-right 10px
+
+
+    &__tabs
+        margin-top 55px
+
+        @media (max-width: 825px)
+            margin-top 35px
+
+    &__titles
+        margin-bottom 50px
+
+
+    &__titles
+        {spaceBetween}
+        border-bottom 1px solid rgba(255, 255, 255, 0.15)
+
+        @media (max-width: 825px)
+            justify-content center
+            flex-wrap wrap
+
+        @media (max-width: 425px)
+            flex-direction column
+            align-items center
+
+    &__item
+        padding 10px 20px 15px
+        font-size 16px
+        color #fff
+        background-color transparent
+        cursor pointer  
+
+        @media (max-width: 825px)
+            padding 20px 
+        
+        &.active
+            border-bottom 4px solid #ffffff
+            font-weight 700 
+
+    &__img
+        display none
+        
+
+        &.active
+            display block
+             
+
+        img 
+            margin-bottom -120px
+            max-width 100%
+            border-radius 40px

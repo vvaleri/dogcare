@@ -1,2 +1,90 @@
 mixin footer(footerMods)
+  -
+    const footerLinks = [
+      {
+        href: "#",
+        text: "About"
+      },
+      {
+        href: "#",
+        text: "Services"
+      },
+      {
+        href: "#",
+        text: "Specials"
+      },
+      {
+        href: "#",
+        text: "Estimates"
+      }
+    ]
+  -
+    const footerItems = [
+      {
+        href: "#",
+        text: "Reviews"
+      },
+      {
+        href: "#",
+        text: "Shop"
+      },
+      {
+        href: "#",
+        text: "Careers"
+      },
+      {
+        href: "#",
+        text: "FAQs"
+      }
+    ]
+  
   footer.footer(class=footerMods)
+    .footer__inner(data-aos='zoom-in')
+      .footer__panel.container
+        p Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua      
+        div
+          +btn({btnType: "button", text: "Make an Appointment"})     
+    .content-footer.container(data-aos='fade-right')
+      .content-footer__info
+        .content-footer__inner
+          img(src='img/svg/footer-logo.svg', alt='logo company')                
+          p
+            | This is a blurb about the company sed do eiusmod tempor incididunt ut labore et dolore ex magna aliqua.           
+        .content-footer__icons
+          a(href='#')
+            +icon("facebook", 24, 24)                 
+          a(href='#')
+            +icon("twitter", 24, 24)                   
+          a(href='#')
+            +icon("instagram", 24, 24)        
+          a(href='#')
+            +icon("youtube", 24, 24)     
+      .content-footer__navigate
+        p explore links        
+        nav.content-footer__menu
+          ul.content-footer__items
+            each link in footerLinks
+              li.content-footer__link
+                a(href='#')=link.text         
+          ul.content-footer__items
+            each item in footerItems
+              li.content-footer__link
+                a(href='#')=item.text
+      .content-footer__contacts
+        p.content-footer__title contact
+        .content-footer__box
+          +icon("place", 16, 16)                   
+          p 321 Pikes Place Parkway Seattle, WA 54321                 
+        .content-footer__box
+          +icon("smartphone", 16, 16)                      
+          p (555) 765-4321              
+        .content-footer__box
+          +icon("email", 16, 16)               
+          p Info@company.com         
+        .content-footer__box
+          +icon("timer", 16, 16)                
+          p Mon - Sat:  7:000 am - 6:00 pm      
+    .footer__sign
+      .footer__info.container
+        p Tagline lorem ipsum dolor sit amet, consectetur adipiscing eiusmod                
+        p &copy; 2018 Company.   Privacy Policy | Terms &amp; Conditions
